@@ -96,6 +96,17 @@ public class ProductClient {
 			}
 			break;
 			
+		case 8:
+			System.out.println("Deleting a Product");
+			try {
+				 	date = "06/05/2019";
+					dateFormat = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+					service.delete_date(LocalDate.parse(date,dateFormat));
+				productSet = service.findAll();
+				System.out.println(productSet);
+			} catch (ProductNotFoundException e) {
+			}
+			
 		default:
 			break;
 		}
