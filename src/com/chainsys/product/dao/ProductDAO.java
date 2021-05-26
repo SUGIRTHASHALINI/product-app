@@ -24,4 +24,6 @@ public interface ProductDAO {
 	void update_expire(Product product);
 	
 	void delete_date(LocalDate expiryDate);
+	
+	void delete_name(String name);
 }
