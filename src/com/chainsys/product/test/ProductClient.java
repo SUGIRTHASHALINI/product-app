@@ -16,6 +16,7 @@ public class ProductClient {
 
 		Set<Product> productSet;
 		List<String> namelist;
+		List<Integer> idlist;
 		ProductService service = new ProductServiceImpl();
 		String date;
 		DateTimeFormatter dateFormat;
@@ -133,6 +134,11 @@ public class ProductClient {
 			System.out.println("Find All Products Names");
 			namelist = service.findAllName();
 			System.out.println(namelist);
+			break;
+		case 12:
+			System.out.println("Find All Product Id");
+			idlist = service.findAllId();
+			System.out.println(idlist);
 			break;
 			
 		default:

@@ -13,6 +13,8 @@ public interface ProductDAO {
 	Product findById(int id);
 	
 	List<String> findAllName();
+	
+	List<Integer> findAllId();
 
 	void save(Product product);
 

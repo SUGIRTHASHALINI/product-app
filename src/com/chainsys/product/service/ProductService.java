@@ -8,9 +8,10 @@ import com.chainsys.product.exception.ProductNotFoundException;
 import com.chainsys.product.model.Product;
 
 public interface ProductService {
-	Set<Product> findAll();
 	
+	Set<Product> findAll();
 	List<String> findAllName();
+	List<Integer> findAllId();	
 
 	Product findById(int id) throws ProductNotFoundException;
 
