@@ -1,6 +1,7 @@
 package com.chainsys.product.service;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Set;
 
 import com.chainsys.product.dao.ProductDAO;
@@ -20,6 +21,11 @@ public class ProductServiceImpl implements ProductService {
 		return dao.findAll();
 	}
 
+	@Override
+	public List<String> findAllName() {
+		return dao.findAllName();
+	}
+		
 	@Override
 	public Product findById(int id) throws ProductNotFoundException {
 		Product Product = dao.findById(id);

@@ -7,7 +7,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import com.chainsys.product.model.Product;
@@ -18,6 +20,7 @@ public class ProductDAOImpl implements ProductDAO {
 	private static PreparedStatement pstmt;
 	private static ResultSet rs;
 	private static Set<Product> productSet;
+	private static ArrayList<String> namelist;
 
 	public ProductDAOImpl() {
 		try {
@@ -45,6 +48,21 @@ public class ProductDAOImpl implements ProductDAO {
 		return productSet;
 	}
 
+	@Override
+	public List<String> findAllName() {
+		try {
+			pstmt = con.prepareStatement("select name from product_2610");
+			rs = pstmt.executeQuery();
+			 namelist = new ArrayList<>();
+			while (rs.next()) {
+				namelist.add(rs.getString("name"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return namelist;
+	}
+	
 	@Override
 	public Product findById(int id) {
 		Product product = null;
@@ -167,7 +185,11 @@ public class ProductDAOImpl implements ProductDAO {
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}
+	}
+	
+	
+		
+		
 
 	}
 
